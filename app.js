@@ -12,6 +12,7 @@ mongoose.connect('mongodb+srv://bellwest:' + process.env.MONGO_ATLAS_PW + '@clus
     {
 //        useMongoClient: true
     });
+mongoose.Promise = global.Promise;
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
