@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 
 const productRoutes = require('./api/routes/products');
 const orderRoutes = require('./api/routes/orders');
+const userRoutes = require('./api/routes/users');
 
 mongoose.connect('mongodb+srv://bellwest:' + process.env.MONGO_ATLAS_PW + '@cluster0.avppc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
     {
@@ -34,6 +35,7 @@ app.use((req, res, next) => {
 
 app.use('/products', productRoutes);
 app.use('/orders', orderRoutes);
+app.use('/users', userRoutes);
 
 app.use((req, res, next) => {
     const error = new Error('Not Found');
